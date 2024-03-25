@@ -21,4 +21,8 @@ export default class Camera {
     this.controls = new OrbitControls(this.instance, document.body);
     this.controls.enableDamping = true;
   }
+
+  loop() {
+    this.controls.update();
+  }
 }
