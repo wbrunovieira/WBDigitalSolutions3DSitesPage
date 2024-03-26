@@ -1,5 +1,6 @@
 import * as THREE from 'three';
 import App from './App';
+import Camera from './Camera';
 
 export default class Renderer {
   constructor() {
@@ -13,12 +14,12 @@ export default class Renderer {
 
   setInstance() {
     this.instance = new THREE.WebGLRenderer({
-      canvas: canvas,
+      canvas: this.canvas,
       antialias: true,
     });
 
     this.instance.setSize(window.innerWidth, window.innerHeight);
-    this.instance.setPixelRatio(window.devicePixelRatio, 2);
+    this.instance.setPixelRatio(Max.min(window.devicePixelRatio, 2));
   }
 
   loop() {
